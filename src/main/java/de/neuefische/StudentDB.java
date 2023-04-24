@@ -35,11 +35,11 @@ public class StudentDB {
     }
 
     // get and set
-    public Student[] getStudents() {
+    public Student[] getAllStudents() {
         return students;
     }
 
-    public void setStudents(Student[] students) {
+    public void setAllStudents(Student[] students) {
         this.students = students;
     }
 }
