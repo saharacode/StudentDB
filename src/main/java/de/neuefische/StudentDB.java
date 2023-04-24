@@ -42,6 +42,14 @@ public class StudentDB {
         return this.students[randomNumber];
     }
 
+    public void addStudent(){
+
+    }
+
+    public void removeStudent(){
+
+    }
+
     // get and set
     public Student[] getAllStudents() {
         return students;
