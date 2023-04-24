@@ -17,7 +17,8 @@ class MainTest {
         Student[] actual_array = sdb.getAllStudents();
 
         // then
-        assertEquals(expected_array, actual_array);
+        boolean check = expected_array.equals(actual_array);
+        assertTrue(check);
 
     }
 
@@ -41,5 +42,39 @@ class MainTest {
 
     }
 
+    @Test
+    void toString_true() {
+        // given
+        String expected = "StudentDB{students=[Student{name='a', studentID=1}]}";
 
+        Student s1 = new Student("a",1);
+        Student[] expected_array = {s1};
+        StudentDB sdb = new StudentDB(expected_array);
+
+        // when
+        String actual = sdb.toString();
+
+        // then
+        boolean check = expected.equals(actual);
+        assertTrue(check);
+
+    }
+
+    @Test
+    void toString_false() {
+        // given
+        String expected = "StudentDB{students=[Student{name='b', studentID=2}]}";
+
+        Student s1 = new Student("a",1);
+        Student[] expected_array = {s1};
+        StudentDB sdb = new StudentDB(expected_array);
+
+        // when
+        String actual = sdb.toString();
+
+        // then
+        boolean check = expected.equals(actual);
+        assertFalse(check);
+
+    }
 }
