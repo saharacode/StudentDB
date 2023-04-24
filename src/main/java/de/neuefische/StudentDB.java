@@ -13,7 +13,7 @@ public class StudentDB {
         this.students = students;
     }
 
-    // basic methods
+    // methods
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -32,6 +32,14 @@ public class StudentDB {
         return "StudentDB{" +
                 "students=" + Arrays.toString(students) +
                 '}';
+    }
+
+    public Student randomStudent(){
+        int max = this.students.length;
+        int min = 0;
+        int randomNumber = (int) (Math.random() * (max - min)) + min;
+
+        return this.students[randomNumber];
     }
 
     // get and set
