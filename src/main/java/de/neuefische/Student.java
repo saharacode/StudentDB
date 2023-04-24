@@ -39,8 +39,6 @@ public class Student {
     }
 
     // get and set
-
-
     public String getName() {
         return name;
     }

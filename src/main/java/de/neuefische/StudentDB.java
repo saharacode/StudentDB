@@ -1,10 +1,45 @@
 package de.neuefische;
 
-public class StudentDB {
+import java.util.Arrays;
 
+public class StudentDB {
+    // properties (array of students)
+    private Student [] students;
 
     // constructors
     public StudentDB(){}
 
+    public StudentDB(Student[] students){
+        this.students = students;
+    }
 
+    // basic methods
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        StudentDB studentDB = (StudentDB) o;
+        return Arrays.equals(students, studentDB.students);
+    }
+
+    @Override
+    public int hashCode() {
+        return Arrays.hashCode(students);
+    }
+
+    @Override
+    public String toString() {
+        return "StudentDB{" +
+                "students=" + Arrays.toString(students) +
+                '}';
+    }
+
+    // get and set
+    public Student[] getStudents() {
+        return students;
+    }
+
+    public void setStudents(Student[] students) {
+        this.students = students;
+    }
 }
