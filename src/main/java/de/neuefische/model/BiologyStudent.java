@@ -2,7 +2,7 @@ package de.neuefische.model;
 
 import java.util.Objects;
 
-public class BiologyStudent extends Student {
+public class BiologyStudent extends Student implements Citizen {
     // properties
     private boolean chemistryBackground;
 
@@ -10,13 +10,27 @@ public class BiologyStudent extends Student {
     public BiologyStudent() {
     }
 
-    public BiologyStudent(String name, int studentID, boolean chemistryBackground) {
-        super(name, studentID);
+    public BiologyStudent(boolean chemistryBackground) {
+        this.chemistryBackground = chemistryBackground;
+    }
+
+    public BiologyStudent(String name, int studentID, String adress, boolean chemistryBackground) {
+        super(name, studentID, adress);
         this.chemistryBackground = chemistryBackground;
     }
 
     // methods
 
+
+    @Override
+    public String getAdress() {
+        return getName() + ", " + super.getAdress(); // call parentclass method with super
+    }
+
+    @Override
+    public int getIdentityCard() {
+        return super.getStudentID();
+    }
 
     @Override
     public String toString() {
@@ -47,4 +61,6 @@ public class BiologyStudent extends Student {
     public void setChemistryBackground(boolean chemistryBackground) {
         this.chemistryBackground = chemistryBackground;
     }
+
+
 }

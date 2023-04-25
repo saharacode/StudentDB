@@ -2,7 +2,7 @@ package de.neuefische.model;
 
 import java.util.Objects;
 
-public class ComputerScienceStudent extends Student{
+public class ComputerScienceStudent extends Student implements Citizen{
     // properties
     private boolean mathBackground;
 
@@ -10,9 +10,26 @@ public class ComputerScienceStudent extends Student{
     public ComputerScienceStudent() {
     }
 
-    public ComputerScienceStudent(String name, int studentID, boolean mathBackground) {
-        super(name, studentID);
+    public ComputerScienceStudent(boolean mathBackground) {
         this.mathBackground = mathBackground;
+    }
+
+    public ComputerScienceStudent(String name, int studentID, String adress, boolean mathBackground) {
+        super(name, studentID, adress);
+        this.mathBackground = mathBackground;
+    }
+
+    // methods
+
+
+    @Override
+    public String getAdress() {
+        return getName() + ", " + super.getAdress();
+    }
+
+    @Override
+    public int getIdentityCard() {
+        return super.getStudentID();
     }
 
     @Override

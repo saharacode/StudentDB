@@ -27,9 +27,9 @@ class MainTest {
     @Test
     void toString_true() {
         // given
-        String expected = "StudentDB{students=[Student{name='a', studentID=1}]}";
+        String expected = "StudentDB{students=[Student{name='a', studentID=1, adress='add'}]}";
 
-        Student s1 = new Student("a",1);
+        Student s1 = new Student("a",1,"add");
         Student[] expected_array = {s1};
         StudentDB sdb = new StudentDB(expected_array);
 
@@ -47,7 +47,7 @@ class MainTest {
         // given
         String expected = "StudentDB{students=[Student{name='b', studentID=2}]}";
 
-        Student s1 = new Student("a",1);
+        Student s1 = new Student("a",1,"add");
         Student[] expected_array = {s1};
         StudentDB sdb = new StudentDB(expected_array);
 

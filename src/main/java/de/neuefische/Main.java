@@ -18,10 +18,12 @@ public class Main {
         System.out.println(sdb.randomStudent());
          */
 
-        ComputerScienceStudent it1 = new ComputerScienceStudent("Milan Jaritz", 1004, true);
-        BiologyStudent bio1 = new BiologyStudent("Carla Essinger", 1005, true);
+        ComputerScienceStudent it1 = new ComputerScienceStudent("Milan Jaritz", 1004, "Proskauer Str. 17", true);
+        BiologyStudent bio1 = new BiologyStudent("Carla Essinger", 1005, "Florastr. 88", true);
 
         System.out.println(it1);
         System.out.println(bio1);
+        System.out.println(bio1.getAdress());
+        System.out.println(it1.getAdress());
     }
 }
