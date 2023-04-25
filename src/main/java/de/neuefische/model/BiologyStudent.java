@@ -22,7 +22,7 @@ public class BiologyStudent extends Student {
     public String toString() {
         return "BiologyStudent{" +
                 "chemistryBackground=" + chemistryBackground +
-                '}';
+                "} " + super.toString();
     }
 
     @Override

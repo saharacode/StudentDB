@@ -15,12 +15,11 @@ public class ComputerScienceStudent extends Student{
         this.mathBackground = mathBackground;
     }
 
-    // methoden
     @Override
     public String toString() {
         return "ComputerScienceStudent{" +
                 "mathBackground=" + mathBackground +
-                '}';
+                "} " + super.toString();
     }
 
     @Override
