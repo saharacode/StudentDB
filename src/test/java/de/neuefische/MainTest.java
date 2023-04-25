@@ -1,5 +1,7 @@
 package de.neuefische;
 
+import de.neuefische.model.Student;
+import de.neuefische.model.StudentDB;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
