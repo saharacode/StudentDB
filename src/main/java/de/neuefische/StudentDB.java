@@ -35,7 +35,7 @@ public class StudentDB {
     }
 
     public Student randomStudent(){
-        int max = this.students.length;
+        int max = students.length;
         int min = 0;
         int randomNumber = (int) (Math.random() * (max - min)) + min;
 
