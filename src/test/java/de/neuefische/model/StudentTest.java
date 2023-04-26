@@ -2,6 +2,8 @@ package de.neuefische.model;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class StudentDBTest {
@@ -10,14 +12,16 @@ class StudentDBTest {
         // given
         Student s1 = new Student(); // doesnt matter which constructor is used
         Student s2 = new Student();
-        Student[] expected_array = {s1, s2};
-        StudentDB sdb = new StudentDB(expected_array);
+        ArrayList<Student> expected_arrayList = new ArrayList<>();
+        expected_arrayList.add(s1);
+        expected_arrayList.add(s2);
+        StudentDB sdb = new StudentDB(expected_arrayList);
 
         // when
-        Student[] actual_array = sdb.getAllStudents();
+        ArrayList<Student> actual_arrayList = sdb.getAllStudents();
 
         // then
-        assertArrayEquals(expected_array,actual_array);
+        assertEquals(expected_arrayList,actual_arrayList);
 
     }
 
@@ -28,8 +32,9 @@ class StudentDBTest {
         String expected = "StudentDB{students=[Student{name='a', studentID=1, adress='add'}]}";
 
         Student s1 = new Student("a",1,"add");
-        Student[] expected_array = {s1};
-        StudentDB sdb = new StudentDB(expected_array);
+        ArrayList<Student> expected_arrayList = new ArrayList<>();
+        expected_arrayList.add(s1);
+        StudentDB sdb = new StudentDB(expected_arrayList);
 
         // when
         String actual = sdb.toString();
@@ -46,8 +51,9 @@ class StudentDBTest {
         String expected = "StudentDB{students=[Student{name='b', studentID=2}]}";
 
         Student s1 = new Student("a", 1, "add");
-        Student[] expected_array = {s1};
-        StudentDB sdb = new StudentDB(expected_array);
+        ArrayList<Student> expected_arrayList = new ArrayList<>();
+        expected_arrayList.add(s1);
+        StudentDB sdb = new StudentDB(expected_arrayList);
 
         // when
         String actual = sdb.toString();
