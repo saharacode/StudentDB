@@ -1,9 +1,6 @@
 package de.neuefische.model;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 public class StudentDB {
     // properties (array of students)
@@ -41,8 +38,9 @@ public class StudentDB {
         int max = students.size();
         int min = 0;
         int randomNumber = (int) (Math.random() * (max - min)) + min;
+        String randomNumberStr = Integer.toString(randomNumber);
 
-        return this.students.get(randomNumber);
+        return this.students.get(randomNumberStr);
     }
 
     public void addStudent(){
@@ -52,6 +50,16 @@ public class StudentDB {
     public void removeStudent(){
 
     }
+
+    public Student findById(String id){
+        if (students.containsKey(id)){
+            return students.get(id);
+        }
+        throw new NoSuchElementException("No Student with the ID" + id + " found.");
+    }
+
+
+
 
     // get and set
     public Map<String, Student> getAllStudents() {

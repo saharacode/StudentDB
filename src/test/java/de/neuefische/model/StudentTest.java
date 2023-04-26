@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.NoSuchElementException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -68,12 +69,21 @@ class StudentDBTest {
         assertFalse(check);
     }
 
-     /*
 
     @Test
     public void findById_ThrowsExceptionWhenStudentNotFound(){
+        // given
+        Map<String, Student> emptyHashMap = new HashMap<String, Student>();
+        StudentDB sdb = new StudentDB(emptyHashMap);
+        String givenID = "1";
 
+        // when/then
+        try {
+            sdb.findById(givenID);
+            fail(); // soll in diesem test fehlschlagen (kann auch auf andere Weise erreicht werden)
+        } catch (NoSuchElementException exception) {
+            assertTrue(true);
+        }
     }
 
-      */
 }
