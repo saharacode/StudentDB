@@ -2,22 +2,31 @@ package de.neuefische.model;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class StudentDBTest {
+
+
     @Test
     void getAllStudents_returnTwoStudents() {
         // given
         Student s1 = new Student(); // doesnt matter which constructor is used
         Student s2 = new Student();
-        Student[] expected_array = {s1, s2};
+        Map<String, Student> expected_array = new HashMap<String,Student>(){{
+            put("1",s1);
+            put("2",s2);
+        }};
+               // {s1, s2};
         StudentDB sdb = new StudentDB(expected_array);
 
         // when
-        Student[] actual_array = sdb.getAllStudents();
+        Map<String,Student> actual_array = sdb.getAllStudents();
 
         // then
-        assertArrayEquals(expected_array,actual_array);
+        assertEquals(expected_array,actual_array);
 
     }
 
@@ -28,7 +37,8 @@ class StudentDBTest {
         String expected = "StudentDB{students=[Student{name='a', studentID=1, adress='add'}]}";
 
         Student s1 = new Student("a",1,"add");
-        Student[] expected_array = {s1};
+        Map<String, Student> expected_array = new HashMap<String,Student>();
+        expected_array.put("1",s1);
         StudentDB sdb = new StudentDB(expected_array);
 
         // when
@@ -46,7 +56,8 @@ class StudentDBTest {
         String expected = "StudentDB{students=[Student{name='b', studentID=2}]}";
 
         Student s1 = new Student("a", 1, "add");
-        Student[] expected_array = {s1};
+        Map<String, Student> expected_array = new HashMap<String,Student>();
+        expected_array.put("1",s1);
         StudentDB sdb = new StudentDB(expected_array);
 
         // when
@@ -56,4 +67,13 @@ class StudentDBTest {
         boolean check = expected.equals(actual);
         assertFalse(check);
     }
+
+     /*
+
+    @Test
+    public void findById_ThrowsExceptionWhenStudentNotFound(){
+
+    }
+
+      */
 }

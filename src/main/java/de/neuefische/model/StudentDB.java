@@ -1,15 +1,18 @@
 package de.neuefische.model;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 public class StudentDB {
     // properties (array of students)
-    private Student [] students;
+    Map<String, Student> students = new HashMap<>();
 
     // constructors
     public StudentDB(){}
 
-    public StudentDB(Student[] students){
+    public StudentDB(Map<String, Student> students) {
         this.students = students;
     }
 
@@ -19,27 +22,27 @@ public class StudentDB {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         StudentDB studentDB = (StudentDB) o;
-        return Arrays.equals(students, studentDB.students);
+        return Objects.equals(students, studentDB.students);
     }
 
     @Override
     public int hashCode() {
-        return Arrays.hashCode(students);
+        return Objects.hash(students);
     }
 
     @Override
     public String toString() {
         return "StudentDB{" +
-                "students=" + Arrays.toString(students) +
+                "students=" + students +
                 '}';
     }
 
     public Student randomStudent(){
-        int max = students.length;
+        int max = students.size();
         int min = 0;
         int randomNumber = (int) (Math.random() * (max - min)) + min;
 
-        return this.students[randomNumber];
+        return this.students.get(randomNumber);
     }
 
     public void addStudent(){
@@ -51,11 +54,11 @@ public class StudentDB {
     }
 
     // get and set
-    public Student[] getAllStudents() {
+    public Map<String, Student> getAllStudents() {
         return students;
     }
 
-    public void setAllStudents(Student[] students) {
+    public void setAllStudents(Map<String, Student> students) {
         this.students = students;
     }
 }
