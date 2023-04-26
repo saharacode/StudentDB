@@ -1,12 +1,10 @@
-package de.neuefische;
+package de.neuefische.model;
 
-import de.neuefische.model.Student;
-import de.neuefische.model.StudentDB;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class MainTest {
+class StudentDBTest {
     @Test
     void getAllStudents_returnTwoStudents() {
         // given
@@ -47,7 +45,7 @@ class MainTest {
         // given
         String expected = "StudentDB{students=[Student{name='b', studentID=2}]}";
 
-        Student s1 = new Student("a",1,"add");
+        Student s1 = new Student("a", 1, "add");
         Student[] expected_array = {s1};
         StudentDB sdb = new StudentDB(expected_array);
 
@@ -57,7 +55,5 @@ class MainTest {
         // then
         boolean check = expected.equals(actual);
         assertFalse(check);
-
-
     }
 }
