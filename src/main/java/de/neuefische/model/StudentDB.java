@@ -61,6 +61,7 @@ public class StudentDB {
             return students.get(id);
         }
         throw new StudentNotFoundException("No Student with the ID" + id + " found.");
+        // Exception muss beim Aufruf (z.b. in main) behandelt werden mit try/catch (koennte auch hier passieren)
     }
 
 
