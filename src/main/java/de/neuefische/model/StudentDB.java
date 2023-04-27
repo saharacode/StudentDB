@@ -55,11 +55,12 @@ public class StudentDB {
 
      */
 
-    public Student findById(String id){
+
+    public Student findById(String id) throws StudentNotFoundException {
         if (students.containsKey(id)){
             return students.get(id);
         }
-        throw new NoSuchElementException("No Student with the ID" + id + " found.");
+        throw new StudentNotFoundException("No Student with the ID" + id + " found.");
     }
 
 
