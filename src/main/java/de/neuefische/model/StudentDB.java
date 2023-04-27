@@ -43,13 +43,17 @@ public class StudentDB {
         return this.students.get(randomNumberStr);
     }
 
-    public void addStudent(){
-
+    /*
+    public Student addStudent(Student student){ // rueckgabewert, damit testbar
+        students.put(student.getStudentID(), student); //funktioniert erst, wenn StudentID ein String ist
+        return students.get(student.getStudentID());
     }
 
     public void removeStudent(){
 
     }
+
+     */
 
     public Student findById(String id){
         if (students.containsKey(id)){

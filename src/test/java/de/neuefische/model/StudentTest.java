@@ -79,7 +79,7 @@ class StudentDBTest {
         // when/then
         try {
             sdb.findById(givenID);
-            fail(); // soll in diesem test fehlschlagen (kann auch auf andere Weise erreicht werden)
+            fail(); // test wird rot, wenn dieser punkt erreicht wird
         } catch (NoSuchElementException exception) {
             assertTrue(true);
         }
