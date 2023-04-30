@@ -55,9 +55,7 @@ public class StudentDB {
         return students.get(student.getStudentID());
     }
 
-    public void removeStudent(){
 
-    }
 
 
 
@@ -68,6 +66,17 @@ public class StudentDB {
         }
         throw new StudentNotFoundException("No Student with the ID" + id + " found.");
         // Exception muss beim Aufruf (z.b. in main) behandelt werden mit try/catch (koennte auch hier passieren)
+    }
+
+    public boolean removeStudentById(String removeID) throws StudentNotFoundException {
+        if (students.containsKey(removeID)){ // check if the ID is in Map
+            students.remove(removeID);
+            if (students.containsKey(removeID)){ // check if student was really removed
+                return false;
+            }
+            return true;
+        }
+        throw new StudentNotFoundException("No Student with the ID" + removeID + " found.");
     }
 
 
@@ -81,4 +90,6 @@ public class StudentDB {
     public void setAllStudents(Map<String, Student> students) {
         this.students = students;
     }
+
+
 }

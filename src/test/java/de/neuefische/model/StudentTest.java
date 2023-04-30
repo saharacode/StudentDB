@@ -85,4 +85,44 @@ class StudentDBTest {
         }
     }
 
+    @Test
+    public void removeStudentById_TrueWhenStudentIsNotInMapAfterRemoval(){
+        // given
+        Student s1 = new Student("Johann", "1", "Teststreet");
+        Map<String,Student> studentMap = new HashMap<>();
+        //studentMap.put(s1.getStudentID(), s1);
+        StudentDB sdb = new StudentDB(studentMap);
+        sdb.addStudent(s1);
+        String removeID = "1";
+
+        // when/then
+        try {
+            boolean studentRemoved = sdb.removeStudentById(removeID);
+            assertTrue(studentRemoved);
+        } catch (StudentNotFoundException e){
+            fail();
+        }
+
+    }
+
+    @Test
+    public void removeStudentById_ThrowExceptionWhenStudentNotFound(){
+        // given
+        Student s1 = new Student("Johann", "1", "Teststreet");
+        Map<String,Student> studentMap = new HashMap<>();
+        //studentMap.put(s1.getStudentID(), s1);
+        StudentDB sdb = new StudentDB(studentMap);
+        sdb.addStudent(s1);
+        String removeID = "2";
+
+        // when/then
+        try {
+            boolean studentRemoved = sdb.removeStudentById(removeID);
+            fail();
+        } catch (StudentNotFoundException e){
+            assertTrue(true);
+        }
+
+    }
+
 }
