@@ -4,7 +4,10 @@ import java.util.*;
 
 public class StudentDB {
     // properties (array of students)
-    Map<String, Student> students = new HashMap<>();
+    Map<String, Student> students = new HashMap<>(); // key is the studentID-String
+
+
+
 
     // constructors
     public StudentDB(){}
@@ -12,6 +15,9 @@ public class StudentDB {
     public StudentDB(Map<String, Student> students) {
         this.students = students;
     }
+
+
+
 
     // methods
     @Override
@@ -43,9 +49,9 @@ public class StudentDB {
         return this.students.get(randomNumberStr);
     }
 
-    /*
+
     public Student addStudent(Student student){ // rueckgabewert, damit testbar
-        students.put(student.getStudentID(), student); //funktioniert erst, wenn StudentID ein String ist
+        students.put(student.getStudentID(), student); // studentID is the key
         return students.get(student.getStudentID());
     }
 
@@ -53,7 +59,7 @@ public class StudentDB {
 
     }
 
-     */
+
 
 
     public Student findById(String id) throws StudentNotFoundException {

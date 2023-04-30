@@ -10,25 +10,23 @@ public class BiologyStudent extends Student implements Citizen {
     public BiologyStudent() {
     }
 
-    public BiologyStudent(boolean chemistryBackground) {
-        this.chemistryBackground = chemistryBackground;
-    }
-
-    public BiologyStudent(String name, int studentID, String adress, boolean chemistryBackground) {
+    public BiologyStudent(String name, String studentID, String adress, boolean chemistryBackground) {
         super(name, studentID, adress);
         this.chemistryBackground = chemistryBackground;
     }
 
+
+
+
+
     // methods
-
-
     @Override
     public String getAdress() {
         return getName() + ", " + super.getAdress(); // call parentclass method with super
     }
 
     @Override
-    public int getIdentityCard() {
+    public String getIdentityCard() {
         return super.getStudentID();
     }
 
@@ -52,6 +50,10 @@ public class BiologyStudent extends Student implements Citizen {
     public int hashCode() {
         return Objects.hash(super.hashCode(), chemistryBackground);
     }
+
+
+
+
 
     // get/set
     public boolean isChemistryBackground() {

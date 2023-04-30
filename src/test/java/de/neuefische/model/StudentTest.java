@@ -14,13 +14,13 @@ class StudentDBTest {
     @Test
     void getAllStudents_returnTwoStudents() {
         // given
-        Student s1 = new Student(); // doesnt matter which constructor is used
-        Student s2 = new Student();
+        Student s1 = new Student("Johann","1","Teststreet");
+        Student s2 = new Student("Nora", "2","Teststreet");
         Map<String, Student> expected_array = new HashMap<String,Student>(){{
-            put("1",s1);
-            put("2",s2);
+            put(s1.getStudentID(),s1);
+            put(s2.getStudentID(),s2);
         }};
-               // {s1, s2};
+
         StudentDB sdb = new StudentDB(expected_array);
 
         // when
@@ -35,11 +35,11 @@ class StudentDBTest {
     @Test
     void toString_true() {
         // given
-        String expected = "StudentDB{students={0=Student{name='a', studentID=1, adress='add'}}}";
+        String expected = "StudentDB{students={1=Student{name='a', studentID='1', adress='add'}}}";
 
-        Student s1 = new Student("a",1,"add");
-        Map<String, Student> expected_array = new HashMap<String,Student>();
-        expected_array.put("0",s1);
+        Student s1 = new Student("a","1","add");
+        Map<String, Student> expected_array = new HashMap<>();
+        expected_array.put(s1.getStudentID(),s1);
         StudentDB sdb = new StudentDB(expected_array);
 
         // when
@@ -49,25 +49,6 @@ class StudentDBTest {
         assertEquals(expected,actual);
 
     }
-
-    @Test
-    void toString_false() {
-        // given
-        String expected = "StudentDB{students=[Student{name='b', studentID=2}]}";
-
-        Student s1 = new Student("a", 1, "add");
-        Map<String, Student> expected_array = new HashMap<String,Student>();
-        expected_array.put("1",s1);
-        StudentDB sdb = new StudentDB(expected_array);
-
-        // when
-        String actual = sdb.toString();
-
-        // then
-        boolean check = expected.equals(actual);
-        assertFalse(check);
-    }
-
 
     @Test
     public void findById_ThrowsExceptionWhenStudentNotFound(){
@@ -85,6 +66,23 @@ class StudentDBTest {
         }
     }
 
-    // weiterer Test wenn keine exception
+    @Test
+    public void findById_correctWhenStudentFound(){
+        // given
+        Student s1 = new Student("Johann","1","Teststreet");
+        Map<String, Student> studentMap = new HashMap<String, Student>();
+        studentMap.put(s1.getStudentID(), s1);
+        StudentDB sdb = new StudentDB(studentMap);
+        String givenID = "1";
+
+        // when/then
+        try {
+            Student actualStudent = sdb.findById(givenID);
+            assertEquals(s1,actualStudent);
+
+        } catch (StudentNotFoundException exception) {
+            fail();
+        }
+    }
 
 }

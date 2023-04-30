@@ -10,27 +10,26 @@ public class ComputerScienceStudent extends Student implements Citizen{
     public ComputerScienceStudent() {
     }
 
-    public ComputerScienceStudent(boolean mathBackground) {
-        this.mathBackground = mathBackground;
-    }
-
-    public ComputerScienceStudent(String name, int studentID, String adress, boolean mathBackground) {
+    public ComputerScienceStudent(String name, String studentID, String adress, boolean mathBackground) {
         super(name, studentID, adress);
         this.mathBackground = mathBackground;
     }
 
+
+
+
     // methods
-
-
     @Override
     public String getAdress() {
         return getName() + ", " + super.getAdress();
     }
 
     @Override
-    public int getIdentityCard() {
+    public String getIdentityCard() {
         return super.getStudentID();
     }
+
+
 
     @Override
     public String toString() {
@@ -52,6 +51,10 @@ public class ComputerScienceStudent extends Student implements Citizen{
     public int hashCode() {
         return Objects.hash(super.hashCode(), mathBackground);
     }
+
+
+
+
 
     // get/set
     public boolean isMathBackground() {

@@ -10,13 +10,13 @@ import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
-        Student s1 = new Student("Johann Dallmann", 1001, "Proskauer Str. 17");
-        Student s2 = new Student("Nora Krause", 1002, "Proskauer Str. 17");
-        Student s3 = new Student("Oskar Rheinfurth", 1003, "Proskauer Str. 17");
+        Student s0 = new Student("Johann Dallmann", "0", "Proskauer Str. 17");
+        Student s1 = new Student("Nora Krause", "1", "Proskauer Str. 17");
+        Student s2 = new Student("Oskar Rheinfurth", "2", "Proskauer Str. 17");
         Map<String, Student> students = new HashMap<String,Student>() {{
-            put("0",s1);
-            put("1",s2);
-            put("2",s3);
+            put(s0.getStudentID(), s0);
+            put(s1.getStudentID(), s1);
+            put(s2.getStudentID(), s2);
         }};
         StudentDB sdb = new StudentDB(students);
         System.out.println(sdb.toString());
@@ -25,8 +25,8 @@ public class Main {
         System.out.println(randomSt.toString());
 
         /*
-        ComputerScienceStudent it1 = new ComputerScienceStudent("Milan Jaritz", 1004, "Proskauer Str. 17", true);
-        BiologyStudent bio1 = new BiologyStudent("Carla Essinger", 1005, "Florastr. 88", true);
+        ComputerScienceStudent it1 = new ComputerScienceStudent("Milan Jaritz", "3", "Proskauer Str. 17", true);
+        BiologyStudent bio1 = new BiologyStudent("Carla Essinger", "4", "Florastr. 88", true);
 
         System.out.println(it1);
         System.out.println(bio1);
